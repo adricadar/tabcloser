@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"name": "tabcloser",
+	"version": "1.0.2",
+
+	"description": "Close aging tabs.",
+
+	"icons": {
+		"48": "icons/tabcloser-48.png"
+	},
+
+	"applications": {
+		"gecko": {
+			"id": "tabcloser@mozilla.org",
+			"strict_min_version": "48.0"
+		}
+	},
+
+    "permissions": ["tabs", "storage"],
+
+	"options_ui": {
+		"page": "options.html"
+	},
+    "background": {
+      "scripts": ["background.js"]
+    },
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["tabcloser.js"]
+	}]
+}
